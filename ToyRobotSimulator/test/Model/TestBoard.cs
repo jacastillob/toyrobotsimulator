@@ -28,7 +28,7 @@ namespace ToyRobotSimulator.test.Model
         [Test]
         [TestCase(5, 5, Utils.DirectionCode.SOUTH)]
         [TestCase(10, 10, Utils.DirectionCode.NORTH)]
-        public void Place(int x, int y, int direction)
+        public void Place(int x, int y, Utils.DirectionCode direction)
         {
             // GIVEN
 
@@ -42,7 +42,7 @@ namespace ToyRobotSimulator.test.Model
         [Test]
         [TestCase(5, 5, Utils.DirectionCode.SOUTH, new int[]{4,5})]
         [TestCase(0, 5, Utils.DirectionCode.NORTH, new int[] { 1, 5 })]
-        public void Move(int x, int y, int direction,int[] newExpectedPosition)
+        public void Move(int x, int y, Utils.DirectionCode direction,int[] newExpectedPosition)
         {
             // GIVEN
             myboard.Place(x, y, direction);
