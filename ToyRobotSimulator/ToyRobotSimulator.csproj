@@ -32,13 +32,24 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ToyRobotSimulator.cs" />
-    <Compile Include="src\Program.cs" />
-    <Compile Include="test\Test.cs" />
+    <Compile Include="src\model\Board.cs" />
+    <Compile Include="src\Engine\Engine.cs" />
+    <Compile Include="src\Client\ToyRobotSimulator.cs" />
+    <Compile Include="test\Client\TestRobotSimulator.cs" />
+    <Compile Include="test\Model\TestBoard.cs" />
+    <Compile Include="src\Extras\Utils.cs" />
+    <Compile Include="test\Engine\TestEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
     <Folder Include="test\" />
+    <Folder Include="src\model\" />
+    <Folder Include="src\Engine\" />
+    <Folder Include="src\Client\" />
+    <Folder Include="test\Engine\" />
+    <Folder Include="test\Model\" />
+    <Folder Include="test\Client\" />
+    <Folder Include="src\Extras\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
