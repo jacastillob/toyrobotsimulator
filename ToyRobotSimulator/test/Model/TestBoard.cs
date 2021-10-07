@@ -26,26 +26,26 @@ namespace ToyRobotSimulator.test.Model
         }
 
         [Test]
-        [TestCase(5, 5, "SOUTH")]
-        [TestCase(10, 10, "NORTH")]
-        public void Place(int x, int y, string direction)
+        [TestCase(5, 5, Utils.DirectionCode.SOUTH)]
+        [TestCase(10, 10, Utils.DirectionCode.NORTH)]
+        public void Place(int x, int y, int direction)
         {
             // GIVEN
 
             // WHEN
-            var value = myboard.Place(x, y, Utils.GetDirection(direction));
+            var value = myboard.Place(x, y, direction);
 
             // ASSERT
             Assert.True(value);
         }
 
         [Test]
-        [TestCase(5, 5, "SOUTH",  new int[]{4,5})]
-        [TestCase(0, 5, "NORTH", new int[] { 1, 5 })]
-        public void Move(int x, int y, string direction,int[] newExpectedPosition)
+        [TestCase(5, 5, Utils.DirectionCode.SOUTH, new int[]{4,5})]
+        [TestCase(0, 5, Utils.DirectionCode.NORTH, new int[] { 1, 5 })]
+        public void Move(int x, int y, int direction,int[] newExpectedPosition)
         {
             // GIVEN
-            myboard.Place(x, y, Utils.GetDirection(direction));
+            myboard.Place(x, y, direction);
 
             // WHEN
             int[] position = myboard.Move();

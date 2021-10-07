@@ -4,10 +4,9 @@ using System.Collections.Generic;
 namespace ToyRobotSimulator.src
 {
     public static class Utils
-    {
-       static Dictionary<string,int> dire = new Dictionary<string, int>() { {"NORTH",0}, { "SOUTH", 2 }, { "EAST", 3 }, { "WEST", 4 } };
 
-        enum ErrorCode : uint
+    {
+        public enum DirectionCode : int
         {
             NORTH = 0,
             SOUTH = 2,
@@ -15,10 +14,16 @@ namespace ToyRobotSimulator.src
             WEST = 4
         }
 
-        public static int GetDirection(string direction)
+        private static Dictionary<string, DirectionCode> DIRECTIONS = new Dictionary<string, DirectionCode>()
+        {   { "NORTH", DirectionCode.NORTH },
+            { "SOUTH", DirectionCode.SOUTH },
+            { "EAST", DirectionCode.EAST },
+            { "WEST", DirectionCode.WEST } };
+
+        public static DirectionCode GetDirection(string direction)
         {
 
-            return dire[direction];
+            return DIRECTIONS[direction];
         }
     }
 

@@ -7,15 +7,12 @@ namespace ToyRobotSimulator.src.model
     {
 
         private int[] positions;
-        private int width, height; 
+        
         public Board()
         {
         }
         public void Initialize(int width,int height)
         {
-            this.width = width;
-            this.height = height;
-
             positions = new int[width*height];
         }
 
@@ -24,15 +21,22 @@ namespace ToyRobotSimulator.src.model
             return positions;
         }
 
-        public  bool Place(int x, int y, int v)
+        public  bool Place(int x, int y, int Direction)
         {
-            positions[x * y] = v;
+            positions[x * y] = Direction;
             return true;
         }
 
         public int[] Move()
         {
-            throw new NotImplementedException();
+
+            for (int i = 0; i < positions.Length; i++)
+            {
+               
+            }
+
+            return new int[] { };
+            
         }
     }
 }
