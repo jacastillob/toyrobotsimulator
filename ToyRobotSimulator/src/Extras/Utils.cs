@@ -4,11 +4,12 @@ using System.Collections.Generic;
 namespace ToyRobotSimulator.src
 {
     public static class Utils
-
     {
+
         public enum DirectionCode : int
         {
-            NORTH = 0,
+            NONE = 0,
+            NORTH = 1,
             SOUTH = 2,
             EAST = 3,
             WEST = 4
@@ -25,10 +26,6 @@ namespace ToyRobotSimulator.src
 
             return DIRECTIONS[direction];
         }
+
     }
-
-      
-
-
-    
 }

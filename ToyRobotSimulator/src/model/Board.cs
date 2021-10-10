@@ -5,6 +5,9 @@ namespace ToyRobotSimulator.src.model
 {
     public class Board
     {
+        private int width;
+        private int height;
+        private int currentIndex;
 
         private Utils.DirectionCode[] positions;
         
@@ -13,6 +16,8 @@ namespace ToyRobotSimulator.src.model
         }
         public void Initialize(int width,int height)
         {
+            this.width = width;
+            this.height = height;
             positions = new Utils.DirectionCode[width*height];
         }
 
@@ -21,31 +26,99 @@ namespace ToyRobotSimulator.src.model
             return positions;
         }
 
+        private bool IsValidNewPosition(int x, int y)
+        {
+            if (x > this.width || y > this.height)
+                return false;
+            if (x < 0 || y < 0)
+                return false;
+
+            return true;
+
+        }
         public  bool Place(int x, int y, Utils.DirectionCode Direction)
         {
-            positions[x * y] = Direction;
+            if (!IsValidNewPosition(x,y)) return false;
+           
+
+            currentIndex = GetBoardIndex(x, y);
+            positions[currentIndex] = Direction;
+
             return true;
         }
 
         public int[] Move()
         {
 
-            for (int i = 0; i < positions.Length; i++)
-            {
+            int currentX = this.GetX(this.currentIndex);
+            int currentY = this.GetY(this.currentIndex);
 
-                switch (positions[i])
+            
+                switch (positions[this.currentIndex])
                 {
+
+                    // DECREASE X -> Heading NORTH
                     case Utils.DirectionCode.NORTH:
 
+                    if (IsValidNewPosition(++currentX, currentY))
+                        {
+                            positions[currentIndex] = Utils.DirectionCode.NONE;
+                            currentIndex = GetBoardIndex(currentX, currentY);
+                            positions[currentIndex] = Utils.DirectionCode.NORTH;
+                       
+                        }
                         break;
+                    // INCREASE X -> Heading SOUTH
+                    case Utils.DirectionCode.SOUTH:
+                    if (IsValidNewPosition(--currentX, currentY))
+                        {
+                            positions[currentIndex] = Utils.DirectionCode.NONE;
+                            currentIndex = GetBoardIndex(currentX, currentY);
+                            positions[currentIndex] = Utils.DirectionCode.SOUTH;
+                        }
+                    break;
+                    // DECREASE Y -> Heading WEAST
+                    case Utils.DirectionCode.WEST:
+                    if (IsValidNewPosition(currentX, ++currentY))
+                        {
+                            positions[currentIndex] = Utils.DirectionCode.NONE;
+                            currentIndex = GetBoardIndex(currentX, currentY);
+                            positions[currentIndex] = Utils.DirectionCode.WEST;
+                        }
+                    break;
+                    // INCREASE Y -> Heading EAST
+                    case Utils.DirectionCode.EAST:
+                    if (IsValidNewPosition(currentX, --currentY))
+                        {
+                            positions[currentIndex] = Utils.DirectionCode.NONE;
+                            currentIndex = GetBoardIndex(currentX, currentY);
+                            positions[currentIndex] = Utils.DirectionCode.EAST;
+                        }
+                    break;
                 }
-                
-            }
-
-            return new int[] { };
             
+            return new int[] {currentX,currentY };
         }
+        /// <summary>
+        /// Return index using x and y requested
+        /// </summary>
+        /// <param name="x"></param>
+        /// <param name="y"></param>
+        /// <returns></returns>
+        private int GetBoardIndex(int x, int y)
+        {
+            return y * this.width + x;
+        }
+        private int GetX(int index)
+        {
+            return index % this.width;
+        }
+        private int GetY(int index)
+        {
+            return index / this.width;
+        }
+        
 
-       
+
     }
 }

@@ -8,29 +8,32 @@ namespace ToyRobotSimulator.test.Model
     [TestFixture]
     public class TestBoard
     {
-        public Board myboard = new Board();
+        //public Board myboard = new Board();
 
         [Test]
         [TestCase(5, 5, 25)]
-        [TestCase(10, 10, 100)]
+        //[TestCase(10, 10, 100)]
         public void InitializeBoard(int w, int h, int expectedPosition)
         {
             // GIVEN
-
+            Board boardToBeInitialized = new Board();
             // WHEN
-            myboard.Initialize(w, h);
+            boardToBeInitialized.Initialize(w, h);
 
             // ASSERT
-            Assert.True(expectedPosition == myboard.GetPositions().Length);
+            Assert.True(expectedPosition == boardToBeInitialized.GetPositions().Length);
 
         }
 
         [Test]
-        [TestCase(5, 5, Utils.DirectionCode.SOUTH)]
-        [TestCase(10, 10, Utils.DirectionCode.NORTH)]
-        public void Place(int x, int y, Utils.DirectionCode direction)
+        [TestCase(5,5,4, 4, Utils.DirectionCode.SOUTH)]
+        //[TestCase(10, 10, Utils.DirectionCode.NORTH)]
+        public void Place(int w, int h,int x, int y, Utils.DirectionCode direction)
         {
+            
             // GIVEN
+            Board myboard = new Board();
+            myboard.Initialize(w, h);
 
             // WHEN
             var value = myboard.Place(x, y, direction);
@@ -40,11 +43,13 @@ namespace ToyRobotSimulator.test.Model
         }
 
         [Test]
-        [TestCase(5, 5, Utils.DirectionCode.SOUTH, new int[]{4,5})]
-        [TestCase(0, 5, Utils.DirectionCode.NORTH, new int[] { 1, 5 })]
-        public void Move(int x, int y, Utils.DirectionCode direction,int[] newExpectedPosition)
+        [TestCase(5,5,4, 4, Utils.DirectionCode.SOUTH, new int[] { 3, 4})]
+        [TestCase(5,5,0, 4, Utils.DirectionCode.NORTH, new int[] { 1, 4 })]
+        public void Move(int w,int h,int x, int y, Utils.DirectionCode direction,int[] newExpectedPosition)
         {
             // GIVEN
+            Board myboard = new Board();
+            myboard.Initialize(w, h);
             myboard.Place(x, y, direction);
 
             // WHEN

@@ -51,9 +51,11 @@
     <Folder Include="test\Model\" />
     <Folder Include="test\Client\" />
     <Folder Include="src\Extras\" />
+    <Folder Include="screenshot\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="screenshot\Toy Robot Simulator.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
