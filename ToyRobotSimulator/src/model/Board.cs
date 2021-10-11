@@ -159,7 +159,17 @@ namespace ToyRobotSimulator.src.model
             return index / this.width;
         }
         
-
-
+        public Utils.DirectionCode GetCurrentDirection()
+        {
+            return positions[this.currentIndex];
+        }
+        public int GetCurrentX()
+        {
+            return GetX(this.currentIndex);
+        }
+        public int GetCurrentY()
+        {
+            return GetY(this.currentIndex);
+        }
     }
 }

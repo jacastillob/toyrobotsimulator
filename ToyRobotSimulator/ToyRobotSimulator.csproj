@@ -40,6 +40,7 @@
     <Compile Include="src\Extras\Utils.cs" />
     <Compile Include="test\Engine\TestEngine.cs" />
     <Compile Include="src\Engine\ParseCommand.cs" />
+    <Compile Include="src\Extras\BoardOutputter.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\" />
