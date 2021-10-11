@@ -1,5 +1,5 @@
 ﻿using System;
-using ToyRobotSimulator.src.model;
+using ToyRobotSimulator.src.Model;
 namespace ToyRobotSimulator.src.Engine
 {
     public class Engine

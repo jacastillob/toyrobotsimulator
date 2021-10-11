@@ -1,7 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using ToyRobotSimulator.src.Extras;
-using ToyRobotSimulator.src.model;
+using ToyRobotSimulator.src.Model;
 
 
 namespace ToyRobotSimulator.test.Model

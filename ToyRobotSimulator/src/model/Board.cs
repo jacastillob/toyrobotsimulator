@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using ToyRobotSimulator.src.Extras;
 
-namespace ToyRobotSimulator.src.model
+namespace ToyRobotSimulator.src.Model
 {
     public class Board
     {

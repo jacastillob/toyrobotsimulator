@@ -1,5 +1,5 @@
 ﻿using System;
-using ToyRobotSimulator.src.model;
+using ToyRobotSimulator.src.Model;
 
 namespace ToyRobotSimulator.src.Extras
 {
@@ -18,7 +18,7 @@ namespace ToyRobotSimulator.src.Extras
             int currentX = board.GetCurrentX();
             int currentY = board.GetCurrentY();
 
-            return $"Output: {currentX},{currentY}{Utils.GetDirectionName(currentPostion)}";
+            return $"Output: {currentX},{currentY},{Utils.GetDirectionName(currentPostion)}";
         }
         public  string JSON()
         {
