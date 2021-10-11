@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-
-namespace ToyRobotSimulator.src
+namespace ToyRobotSimulator.src.Extras
 {
+
     public static class Utils
     {
         public enum DirectionCode : int
@@ -13,6 +13,7 @@ namespace ToyRobotSimulator.src
             EAST = 3,
             WEST = 4
         }
+
         private static Dictionary<string, DirectionCode> DirectionCodes = new Dictionary<string, DirectionCode>()
         {
             { "NORTH", DirectionCode.NORTH },
@@ -20,13 +21,14 @@ namespace ToyRobotSimulator.src
             { "EAST", DirectionCode.EAST },
             { "WEST", DirectionCode.WEST }
         };
-        private static Dictionary<DirectionCode, string> DirectionNames = new Dictionary< DirectionCode,string>()
+        private static Dictionary<DirectionCode, string> DirectionNames = new Dictionary<DirectionCode, string>()
         {
             {  DirectionCode.NORTH,"NORTH" },
             {  DirectionCode.SOUTH,"SOUTH" },
             {  DirectionCode.EAST,"EAST" },
             {  DirectionCode.WEST,"WEST" }
         };
+
         public static DirectionCode GetDirectionCode(string direction)
         {
             return DirectionCodes[direction];
@@ -36,4 +38,5 @@ namespace ToyRobotSimulator.src
             return DirectionNames[direction];
         }
     }
+
 }

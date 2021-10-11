@@ -3,27 +3,31 @@ using ToyRobotSimulator.src.model;
 
 namespace ToyRobotSimulator.src.Extras
 {
-    public static class BoardOutputter
+    public  class BoardOutputter
     {
+        protected Board board;
 
-        public static string STRING(Board board )
+        public BoardOutputter(Board board)
+        {
+            this.board = board;
+        }
+
+        public  string STRING()
         {
             Utils.DirectionCode currentPostion = board.GetCurrentDirection();
             int currentX = board.GetCurrentX();
             int currentY = board.GetCurrentY();
 
             return $"Output: {currentX},{currentY}{Utils.GetDirectionName(currentPostion)}";
-
         }
-        public static string JSON(Board board)
+        public  string JSON()
         {
             return "{}";
 
         }
-        public static string HTML(Board board)
+        public  string HTML()
         {
             return "<html></html>";
-
         }
     }
 }

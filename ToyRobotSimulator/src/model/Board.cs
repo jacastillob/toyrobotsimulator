@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using ToyRobotSimulator.src.Extras;
 
 namespace ToyRobotSimulator.src.model
 {
