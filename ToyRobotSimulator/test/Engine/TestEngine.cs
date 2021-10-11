@@ -7,8 +7,6 @@ namespace ToyRobotSimulator.test.Engine
     public class TestEngine
     {
 
-        public TestEngine()
-        {
-        }
+        
     }
 }

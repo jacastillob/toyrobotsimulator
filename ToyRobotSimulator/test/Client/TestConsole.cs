@@ -5,7 +5,7 @@ using ToyRobotSimulator.src.Engine;
 namespace ToyRobotSimulator
 {
     [TestFixture]
-    public class TestRobotSimulator
+    public class TestConsole
     {
         public Engine myengine = new Engine();
 

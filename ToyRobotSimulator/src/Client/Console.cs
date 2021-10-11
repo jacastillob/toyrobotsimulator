@@ -1,9 +1,9 @@
 ﻿using System;
 namespace ToyRobotSimulator
 {
-    public class ToyRobotSimulator
+    public class Console
     {
-        public ToyRobotSimulator()
+        public Console()
         {
         }
         /// <summary>

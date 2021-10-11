@@ -32,10 +32,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="src\model\Board.cs" />
+    <Compile Include="src\Model\Board.cs" />
     <Compile Include="src\Engine\Engine.cs" />
-    <Compile Include="src\Client\ToyRobotSimulator.cs" />
-    <Compile Include="test\Client\TestRobotSimulator.cs" />
+    <Compile Include="src\Client\Console.cs" />
+    <Compile Include="test\Client\TestConsole.cs" />
     <Compile Include="test\Model\TestBoard.cs" />
     <Compile Include="src\Extras\Utils.cs" />
     <Compile Include="test\Engine\TestEngine.cs" />
@@ -44,7 +44,7 @@
   <ItemGroup>
     <Folder Include="src\" />
     <Folder Include="test\" />
-    <Folder Include="src\model\" />
+    <Folder Include="src\Model\" />
     <Folder Include="src\Engine\" />
     <Folder Include="src\Client\" />
     <Folder Include="test\Engine\" />
