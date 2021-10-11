@@ -39,7 +39,6 @@ namespace ToyRobotSimulator.src.model
         public  bool Place(int x, int y, Utils.DirectionCode Direction)
         {
             if (!IsValidNewPosition(x,y)) return false;
-           
 
             currentIndex = GetBoardIndex(x, y);
             positions[currentIndex] = Direction;
@@ -49,25 +48,21 @@ namespace ToyRobotSimulator.src.model
 
         public int[] Move()
         {
-
             int currentX = this.GetX(this.currentIndex);
             int currentY = this.GetY(this.currentIndex);
-
             
                 switch (positions[this.currentIndex])
                 {
 
                     // DECREASE X -> Heading NORTH
                     case Utils.DirectionCode.NORTH:
-
                     if (IsValidNewPosition(++currentX, currentY))
                         {
                             positions[currentIndex] = Utils.DirectionCode.NONE;
                             currentIndex = GetBoardIndex(currentX, currentY);
                             positions[currentIndex] = Utils.DirectionCode.NORTH;
-                       
                         }
-                        break;
+                    break;
                     // INCREASE X -> Heading SOUTH
                     case Utils.DirectionCode.SOUTH:
                     if (IsValidNewPosition(--currentX, currentY))
@@ -96,9 +91,55 @@ namespace ToyRobotSimulator.src.model
                         }
                     break;
                 }
-            
             return new int[] {currentX,currentY };
         }
+
+
+        public Utils.DirectionCode Left()
+        {
+            switch (positions[this.currentIndex])
+            {
+
+                case Utils.DirectionCode.NORTH:
+                    positions[currentIndex] = Utils.DirectionCode.WEST;
+                break;
+                case Utils.DirectionCode.WEST:
+                    positions[currentIndex] = Utils.DirectionCode.SOUTH;
+                    break;
+                case Utils.DirectionCode.SOUTH:
+                    positions[currentIndex] = Utils.DirectionCode.EAST;
+                    break;
+                case Utils.DirectionCode.EAST:
+                    positions[currentIndex] = Utils.DirectionCode.NORTH;
+                    break;
+            }
+
+            return positions[currentIndex];
+
+        }
+
+        public Utils.DirectionCode Right()
+        {
+            switch (positions[this.currentIndex])
+            {
+
+                case Utils.DirectionCode.NORTH:
+                    positions[currentIndex] = Utils.DirectionCode.EAST;
+                    break;
+                case Utils.DirectionCode.EAST:
+                    positions[currentIndex] = Utils.DirectionCode.SOUTH;
+                    break;
+                case Utils.DirectionCode.SOUTH:
+                    positions[currentIndex] = Utils.DirectionCode.WEST;
+                    break;
+                case Utils.DirectionCode.WEST:
+                    positions[currentIndex] = Utils.DirectionCode.NORTH;
+                    break;
+            }
+
+            return positions[currentIndex];
+        }
+
         /// <summary>
         /// Return index using x and y requested
         /// </summary>

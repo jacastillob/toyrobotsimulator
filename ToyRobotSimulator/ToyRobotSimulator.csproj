@@ -55,7 +55,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
-    <None Include="screenshot\Toy Robot Simulator.png" />
+    <None Include="screenshot\Toy Robot.png" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

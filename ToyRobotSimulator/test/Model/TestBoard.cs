@@ -58,8 +58,42 @@ namespace ToyRobotSimulator.test.Model
             // ASSERT
             Assert.True(Array.Exists(position, e => e == newExpectedPosition[0]));
             Assert.True(Array.Exists(position, e => e == newExpectedPosition[1]));
-
-
         }
+
+        [Test]
+        [TestCase(5, 5, 4, 4, Utils.DirectionCode.SOUTH, Utils.DirectionCode.EAST)]
+        [TestCase(5, 5, 0, 4, Utils.DirectionCode.NORTH, Utils.DirectionCode.WEST)]
+        public void Left(int w, int h, int x, int y, Utils.DirectionCode direction, Utils.DirectionCode expectedDirection)
+        {
+            // GIVEN
+            Board myboard = new Board();
+            myboard.Initialize(w, h);
+            myboard.Place(x, y, direction);
+
+            // WHEN
+            Utils.DirectionCode value = myboard.Left();
+
+            // ASSERT
+            Assert.True(value==expectedDirection);
+        }
+
+        [Test]
+        [TestCase(5, 5, 4, 4, Utils.DirectionCode.EAST, Utils.DirectionCode.SOUTH)]
+        [TestCase(5, 5, 0, 4, Utils.DirectionCode.NORTH, Utils.DirectionCode.EAST)]
+        public void Right(int w, int h, int x, int y, Utils.DirectionCode direction, Utils.DirectionCode expectedDirection)
+        {
+            // GIVEN
+            Board myboard = new Board();
+            myboard.Initialize(w, h);
+            myboard.Place(x, y, direction);
+
+            // WHEN
+            Utils.DirectionCode value = myboard.Right();
+
+            // ASSERT
+            Assert.True(value == expectedDirection);
+        }
+
+
     }
 }
